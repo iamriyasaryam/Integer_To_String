@@ -1,19 +1,19 @@
 import java.util.*;
-public class string {
+public class INT2STRING {
 // PROGRAMM TO CONVERT INTEGER VALUE INTO STRING VALUE 
     public static void main(String args[]){
 
+
       String number_0to19[] = {"one","two","three","four","five","six","seven","eight","nine","elevan","twelve","therteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen"};
 
-      String number_decad[] = {"twenty","therty","fourty","fifty","sixty","seventy","eighty","ninety"};
+      String number_decad[] = {"ten","twenty","therty","fourty","fifty","sixty","seventy","eighty","ninety"};
 
-      String number_century[] = {"hundrad","two hundrad","three hundrad","four hundrad","five hundrad","six hundrad","seven hundrad","eight hundrad","nine hundrad"};
+      String number_century[] = {"one hundrad","two hundrad","three hundrad","four hundrad","five hundrad","six hundrad","seven hundrad","eight hundrad","nine hundrad"};
 
       Scanner sc = new Scanner(System.in);
       System.out.println("Enter a integer number to convert into String value : ");
       int number = sc.nextInt();
-        
-
+      
       if(number<20){
          switch(number){
          case 1: System.out.println("one");
@@ -37,7 +37,7 @@ public class string {
          case 7:System.out.println("sevan");
          break;
          
-         case 8:System.out.println("Nine");
+         case 8:System.out.println("eight");
          break;
          
          case 9:System.out.println("Nine");
@@ -79,83 +79,33 @@ public class string {
       
       }
       else if(number>19 && number<=99){
-        if(number>=20 && number<=29){
           int firstDigit = number/10;
           int lastDigit = (number%10);
-
-          print_twenty(lastDigit);
-
+          for(int i=0; i<number_decad.length; i++){
+            for(int j=0; j<number_0to19.length; j++){
+              if(firstDigit == i+1 && lastDigit == j+1){
+                System.out.print(number_decad[i] + " " + number_0to19[j]);
+              }
+            }
+          }
+          System.out.println();
         }
-        else if(number>30 && number<=39){
-          int firstDigit = number/10;
-          int lastDigit = (number%10);
-
+       else if(number>=100 &&  number<=999){
+        int firstDigit = number/100;
+        int  secondDigit = number%100;
+        secondDigit /= 10; 
+        int lastDigit = (number%10);
+        for(int i=0; i<number_century.length; i++){
+          for(int j=0; j<number_decad.length; j++){
+            for(int k=0; k<number_0to19.length; k++){
+              if(firstDigit == i+1 && secondDigit == j+1 && lastDigit == k+1 ){
+                System.out.print(number_century[i] + " " + number_decad[j]+" "+number_0to19[k]);
+              }
+            }
+          }
         }
-        if(number>40 && number<=49){
-          int firstDigit = number/10;
-          int lastDigit = (number%10);
-
-        }
-        else if(number>50 && number<=59){
-          int firstDigit = number/10;
-          int lastDigit = (number%10);
-
-        }
-        if(number>50 && number<=59){
-          int firstDigit = number/10;
-          int lastDigit = (number%10);
-
-        }
-        else if(number>60 && number<=69){
-          int firstDigit = number/10;
-          int lastDigit = (number%10);
-
-        }
-        if(number>70 && number<=79){
-          int firstDigit = number/10;
-          int lastDigit = (number%10);
-
-        }
-        else if(number>80 && number<=89){
-          int firstDigit = number/10;
-          int lastDigit = (number%10);
-
-        }
-        if(number>90 && number<=99){
-          int firstDigit = number/10;
-          int lastDigit = (number%10);
-
-        }
-      }
-
-    }
-
-    // FUNCTION TO PRINT NUMBERS FROM 20 TO 29 IN STRING VALUES 
-
-    public static void print_twenty(int twenty){
-      switch(twenty){
-        case 0:System.out.println("twenty");
-        break;
-        case 1:System.out.println("twenty one");
-        break;
-        case 2:System.out.println("twenty two");
-        break;
-        case 3:System.out.println("twenty three");
-        break;
-        case 4:System.out.println("twenty four");
-        break;
-        case 5:System.out.println("twenty five");
-        break;
-        case 6:System.out.println("twenty six");
-        break;
-        case 7:System.out.println("twenty seven");
-        break;
-        case 8:System.out.println("twenty eight");
-        break;
-        case 9:System.out.println("twenty nine");
-        break;
-      }
-
+        
+       }
     }
 
       
